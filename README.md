@@ -20,23 +20,30 @@ Program 1:
 Program 2:
   -Calculates expected distribution of states for subfunctionalization-only model and subfunctionalization + Dosage model after whole-genome duplication
   -Currently written to produce data for figure 3 and 4a
+	
+	
   -Pseudo code
-        For each effective population size listed
-            For each generation until desired time point
-                Concentration of hydrophobic residues when in stoichiometric balance ([A]tot=[B]tot) = [A]free + [B]free (calculated from k, [A]total, [B]total)
-                Concentration of hydrophobic residues when out of stoichiometric balance ([A]tot=2[B]tot) = [A]free + [B]free (calculated from k, [A]total, [B]total)
-                For each state
-                    Unaffected tissues = z – current state
-                    Affected tissues  = current state
-                    Summation of hydrophobic residues across tissues = (unaffected tissues)*concentration hp when in stoichiometric balance + affected tissues * concentration hp when out of stoichiometric balance
-                    Fitness per state = 1/(scalar + sum of hp across tissues for state)
-                Vector of fitness values for each state  = [fitness of state 0, fitness of state 1, etc]
-                Probability Distribution Across States = using generator Markov matrix with vector of fitness values for each state, and initial state vector
-                
+	
+	
+	//
+        For each effective population size listed;
+            For each generation until desired time point;
+                Concentration of hydrophobic residues when in stoichiometric balance ([A]tot=[B]tot) = [A]free + [B]free (calculated from k, [A]total, [B]total);
+                Concentration of hydrophobic residues when out of stoichiometric balance ([A]tot=2[B]tot) = [A]free + [B]free (calculated from k, [A]total, [B]total);
+                For each state;
+                    Unaffected tissues = z – current state;
+                    Affected tissues  = current state;
+                    Summation of hydrophobic residues across tissues = (unaffected tissues)*concentration hp when in stoichiometric balance + affected tissues * concentration hp when out of stoichiometric balance;
+                    Fitness per state = 1/(scalar + sum of hp across tissues for state);
+                Vector of fitness values for each state  = [fitness of state 0, fitness of state 1, etc];
+                Probability Distribution Across States = using generator Markov matrix with vector of fitness values for each state, and initial state vector;
+            
                 
   ***To use this code need Eigen package***
   -Inputs: (lines 91 - 123)
   -AND change the initial state vector if need be (lines 376-380)
+	
+	
       // Nucleotide mutation rate, prob of mutations in coding region and reg region (lengths)
         long double nucleotide_mutation_rate;
         long double nucleotide_length_coding_region; //size of area where if a mutation occurs, that knocks out the coding region
@@ -52,7 +59,6 @@ Program 2:
         //[hp] = [A]free + [B]free
     // Scalar on number of hydrophobic patches per cell and fitness penalty 
         long double scalar ;
-
     // Figure parameters    
         // For naming .csv file
         std::string figure_number ;
@@ -83,6 +89,8 @@ Program 3:
   ***To use this code need Eigen package***
   -Inputs: (lines 85 - 116)
   -AND change the initial state vector if need be (lines 368-373)
+	
+	
       // Nucleotide mutation rate, prob of mutations in coding region and reg region (lengths)
         long double nucleotide_mutation_rate;
         long double nucleotide_length_coding_region; //size of area where if a mutation occurs, that knocks out the coding region
@@ -98,7 +106,6 @@ Program 3:
         //[hp] = [A]free + [B]free
     // Scalar on number of hydrophobic patches per cell and fitness penalty 
         long double scalar ;
-
     // Figure parameters    
         // For naming .csv file
         std::string figure_number ;
